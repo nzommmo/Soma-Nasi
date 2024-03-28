@@ -28,10 +28,16 @@ if (isset($_POST['login'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['hashedpassword'])) {
-            echo "Login successful";
+            // Initialize session
+            session_start();
+
+            // Set session variables
+            $_SESSION["loggedin"] = true;
+            $_SESSION["id"] = $row['id']; // Assuming you have a user ID in your users table
 
             // Redirect to dashboard or any other page after successful login
             header("Location: user_page.php");
+            exit;
         } else {
             echo "Invalid email or password";
         }
@@ -39,6 +45,7 @@ if (isset($_POST['login'])) {
         echo "Email not found";
     }
 }
+
 ?>
 
 <!doctype html>

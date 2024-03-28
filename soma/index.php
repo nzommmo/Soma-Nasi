@@ -31,7 +31,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../templates/login.php">Login</a>
+                    <a class="nav-link active" aria-current="page" href="templates/login.php">Login</a>
                 </li>
               
             </ul>
@@ -46,7 +46,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <?php
 // Connect to your database
-require_once 'config.php';
+require_once 'templates/config.php';
 
 // Query to fetch book titles, thumbnails, and infoLinks from the database
 $query = "SELECT title, thumbnail, infoLink FROM Books";
@@ -84,7 +84,7 @@ if ($result) {
 mysqli_close($conn);
 ?>
 </div>
-<script src="../static/main.js"></script>
+<script src="static/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
