@@ -7,7 +7,7 @@ if (isset($_GET['book_id'])) {
     $book_id = $_GET['book_id'];
 
     // Check if the book exists
-    $query = "SELECT * FROM books WHERE id = '$book_id'";
+    $query = "SELECT * FROM Books WHERE id = '$book_id'";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
@@ -20,7 +20,7 @@ if (isset($_GET['book_id'])) {
         $book_title = $row['title'];
 
         // Insert the book into the cart
-        $query = "INSERT INTO cart (user_id, book_id, quantity) VALUES (1, '$book_id', 1)";
+        $query = "INSERT INTO Cart (user_id, book_id, quantity) VALUES (1, '$book_id', 1)";
         $result = mysqli_query($conn, $query);
 
         if (!$result) {

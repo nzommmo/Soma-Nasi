@@ -44,7 +44,7 @@
     include_once 'config.php';
 
     // Fetch all books from the database
-    $query = "SELECT * FROM books";
+    $query = "SELECT * FROM Books";
     $result = mysqli_query($conn, $query);
 
     // Check if query was successful
@@ -59,7 +59,7 @@
         $book_id = $row['id'];
 
         // Prepare a select statement to check if the book is in the cart
-        $check_query = "SELECT * FROM cart WHERE user_id = ? AND book_id = ?";
+        $check_query = "SELECT * FROM Cart WHERE user_id = ? AND book_id = ?";
         $stmt = mysqli_prepare($conn, $check_query);
         mysqli_stmt_bind_param($stmt, "is", $user_id, $book_id);
         mysqli_stmt_execute($stmt);
